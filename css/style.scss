@@ -21,7 +21,7 @@ $grey: #464646;
 $font: 'Exo', sans-serif;
 
 /* Media queries */
-$tablet: 600px;
+$tablet: 700px;
 
 /**
  * Mixins
@@ -121,11 +121,11 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	@media (min-width: $tablet) {
-		font-size: 2.250em;
+		font-size: 2.5em;
 	}
 }
 h2 {
-	margin: 0;
+	margin: 10px 0 0 0;
 	font-size: 1.750em;
 	text-align: center;
 	@media (min-width: $tablet) {
@@ -148,6 +148,13 @@ h5 {
 	font-size: 1em;
 }
 
+p {
+	font-size: 1.1em;
+}
+a {
+	color: $red;
+}
+
 .button {
 	@include button;
 	@include center-block;
@@ -164,6 +171,9 @@ h5 {
 	color: white;
 	text-align: center;
 	&.large {
+		@media (min-width: 600px) {
+			font-size: 2.5em;
+		}
 		@media (min-width: $tablet) {
 			font-size: 6em;
 		}
@@ -172,6 +182,10 @@ h5 {
 		@media (min-width: $tablet) {
 			font-size: 3em;
 		}
+	}
+	a {
+		color: white;
+		text-decoration: none;
 	}
 }
 
@@ -205,6 +219,9 @@ nav[role="navigation"] {
 		color: white;
 		&:hover {
 			background: black;
+		}
+		&.inactive {
+			opacity: .3;
 		}
 		@media (min-width: $tablet) {
 			padding: 10px 20px;
@@ -268,6 +285,8 @@ footer[role="contentinfo"] {
 code {
 	font-size: 0.875em;
 	.highlight {
+		background: #f7f7f7;
+		border: 1px solid #ccc;
 		padding: 0 5px;
 	}
 }
@@ -279,14 +298,20 @@ code {
 /* Header */
 .logo-header {
 	margin-bottom: 1.688em;
-	@media (min-width: $tablet) {
-		margin-bottom: 293px;
+	@media (min-width: 600px) {
+		margin-bottom: 100px;
 	}
+	/* @media (min-width: $tablet) {
+		margin-bottom: 293px;
+	} */
 	.logo {
 		margin-top: 20px;
-		@media (min-width: $tablet) {
-			margin-top: 293px;
+		@media (min-width: 600px) {
+			margin-top: 100px;
 		}
+		/* @media (min-width: $tablet) {
+			margin-top: 293px;
+		} */
 	}
 	.slogan {
 		margin: 0 0 1.688em 0;
@@ -295,6 +320,9 @@ code {
 		font-weight: 700;
 		color: white;
 		text-align: center;
+		@media (min-width: 600px) {
+			font-size: 1.125em;
+		}
 		@media (min-width: $tablet) {
 			font-size: 1.563em;
 		}
@@ -311,7 +339,10 @@ section.content {
 	padding: 0 0 40px 0;
 	width: 95%;
 	max-width: 1170px;
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid $grey;
+	header h1 {
+		text-shadow: 1px 1px 1px white;
+	}
 }
 
 /* Sections */
@@ -322,7 +353,7 @@ section.content {
 		text-align: center;
 	}
 	.button {
-		max-width: 190px;
+		max-width: 210px;
 	}
 }
 

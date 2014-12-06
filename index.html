@@ -17,13 +17,14 @@ bodyClass: home overview
             </header>
             
             <section class="content">
-               
+              
+              {% include main_menu.html %} 
                 
                 <article id="plug-and-play" class="feature-section">
                     <header class="feature-section-header">
                         <h1>Responsive images.<br>Plug and play</h1>
                     </header>
-                    <p>Responsify WP finds all images inside <b>the_content()</b> and makes them responsive.</p>
+                    <p>Responsify WP finds all images inside <b>the_content()</b> and makes them responsive.<br>Thanks to the included <a href="http://scottjehl.github.io/picturefill/" target="_blank">Picturefill</a> polyfill, you don't have to worry about browser support.</p>
                     <div class="row">
                         <div class="col-2">
                             <h2>Before</h2>
@@ -93,13 +94,17 @@ bodyClass: home overview
                 </article>
 
                 <article id="handpick-sizes" class="feature-section">
+                    <header class="feature-section-header">
+                        <h1>Made for developers. To</h1>
+                    </header>
+                    <p>With great powers comes great responsive websites. Responsify WP allows you to take control of your responsive images.</p>
                     <div class="row">
                         <div class="col-3">
                             <h2>Handpick sizes</h2>
+                            <p>Select exactly which image sizes that RWP should use.</p>
 <code>
 {% highlight php %}
 <?php
-
 // Using get_posts()
 $posts = get_posts( array(
     'post_type' => 'portfolio',
@@ -115,11 +120,39 @@ foreach ( $posts as $post ) {
 </code>
                         </div>
                         <div class="col-3">
-                            <h2>Custom media queries</h2>
-
+                            <h2>Media queries</h2>
+                            <p>Specify which image size that should be used at which viewport size.</p>
+<code>
+{% highlight php %}
+<?php
+$args = array(
+    'post_type' => 'portfolio',
+    'rwp_settings' => array(
+        'sizes' => array('thumbnail', 'medium', 'large'),
+        'media_queries' => array(
+            'medium' => 'min-width: 500px',
+            'large' => 'min-width: 1024px'
+        )
+    )
+);
+$query = new WP_Query( $args );
+?>
+{% endhighlight %}
+</code>
                         </div>
                         <div class="col-3 last">
                             <h2>Picture::create()</h2>
+                            <p>Outside the loop? No problems, the <strong>Picture::create()</strong> function helps you whenever, and wherever you need it.</p>
+<code>
+{% highlight php %}
+<?php
+// Generates a picture element
+echo Picture::create( 'element', $attachment_id, $optional_settings );
+// Generates a img tag with srcset/sizes attributes
+echo Picture::create( 'img', $attachment_id, $optional_settings );
+?>
+{% endhighlight %}
+</code>
                         </div>
                     </div>
                 </article>
@@ -130,7 +163,7 @@ foreach ( $posts as $post ) {
                 <h1>Start caring</h1>
                 <a href="https://wordpress.org/plugins/responsify-wp/" class="button">Download Responsify WP</a>
                 <br>
-                <a href="https://wordpress.org/plugins/responsify-wp/" class="button">View on GitHub</a>
+                <a href="https://github.com/stefanledin/responsify-wp" class="button">View on GitHub</a>
             </section>
 
             <footer role="contentinfo">
