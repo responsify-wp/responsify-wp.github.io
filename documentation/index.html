@@ -270,7 +270,7 @@ echo Picture::create( 'element', $attachment_id, $settings );
 </code>
 <code>
 {% highlight html %}
-<img sizes="100vw"
+<img sizes="(min-width: 300px) 1024px, 300px"
     srcset="large.jpg 1024w,
     medium.jpg 300w"
     alt="Image description">
@@ -328,7 +328,7 @@ echo Picture::create( 'img', $attachment_id, $settings );
 <img id="responsive-image" sizes="(min-width: 500px) 1024px, 300px" 
         srcset="medium.jpg 300w,
         large.jpg 1024w,
-        full.jpg <image-width>"
+        full.jpg 2048w"
         alt="Image description">
 {% endhighlight %}
 </code>  
