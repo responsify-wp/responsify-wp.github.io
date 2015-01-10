@@ -4,8 +4,9 @@
 /**
  * Imports
  */
-@import "normalize";
-@import "boilerplate";
+/*@import "normalize";
+@import "boilerplate";*/
+@import "bootstrap";
 @import "syntax";
 
 /**
@@ -18,7 +19,7 @@ $orange: #d54e21;
 $grey: #464646;
 
 /* Typography */
-$font: 'Exo', sans-serif;
+$font: sans-serif;
 
 /* Media queries */
 $tablet: 700px;
@@ -42,6 +43,8 @@ $tablet: 700px;
 		background-image: -webkit-linear-gradient(top, $grey, black);
 		background-image: linear-gradient(to bottom, $grey, black);
 		border: 1px solid black;
+		color: white;
+		text-decoration: none;
 	}
 	@media (min-width: $tablet) {
 		padding: 10px;
@@ -61,44 +64,6 @@ $tablet: 700px;
 	position: relative;
 }
 
-.row {
-
-	/* Clearfix */
-	&:before,
-	&:after {
-	    content: " "; /* 1 */
-	    display: table; /* 2 */
-	}
-	&:after {
-	    clear: both;
-	}
-
-	.last {
-		margin-right: 0;
-	}
-}
-
-.col-3 {
-	@media (min-width: $tablet) {
-		margin-right: 3.3%;
-		width: 30%;
-		float: left;
-	}
-}
-
-.col-2 {
-	@media (min-width: $tablet) {
-		margin-right: 2.5%;
-		width: 47.5%;
-		float: left;
-	}
-}
-
-.col-1 {
-	margin: 0 auto;
-	width: 95%;
-}
-
 /**
  * Globals
  */
@@ -112,7 +77,11 @@ img {
 	height: auto;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2 {
+	text-align: center;
+}
+
+/* h1, h2, h3, h4, h5 {
 	font-family: $font;
 	color: $grey;
 }
@@ -150,7 +119,7 @@ h5 {
 
 p {
 	font-size: 1.1em;
-}
+} */
 a {
 	color: $red;
 }
@@ -172,7 +141,7 @@ a {
 	text-align: center;
 	&.large {
 		@media (min-width: 600px) {
-			font-size: 2.5em;
+			font-size: 4em;
 		}
 		@media (min-width: $tablet) {
 			font-size: 6em;
@@ -232,10 +201,13 @@ nav[role="navigation"] {
 		border-right: none;
 	}
 }
+.home nav[role="navigation"] {
+	margin-bottom: 0;
+}
 
 /* Footer */
 footer[role="contentinfo"] {
-	padding: 20px 0;
+	margin: 20px 0;
 	color: white;
 	text-align: center;
 	a, a:visited {
@@ -282,14 +254,14 @@ footer[role="contentinfo"] {
 	&.landscape { width: 900px; height: 1280px; }
 }
 
-code {
+/* code {
 	font-size: 0.875em;
 	.highlight {
 		background: #f7f7f7;
 		border: 1px solid #ccc;
 		padding: 0 5px;
 	}
-}
+} */
 
 /**
  * Home
@@ -330,7 +302,7 @@ code {
 }
 
 section.content {
-	background: rgba(255, 255,255, .9);
+	background: rgba(255, 255,255, .95);
 }
 
 /* Feature section */

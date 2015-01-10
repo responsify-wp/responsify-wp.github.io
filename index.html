@@ -15,20 +15,22 @@ bodyClass: home overview
                     <a href="https://wordpress.org/plugins/responsify-wp/" class="button">Download</a>
                 </div>
             </header>
-            
-            <section class="content">
               
-              {% include main_menu.html %} 
-                
+            {% include main_menu.html %} 
+
+            <section class="content container-fluid">
                 <article id="plug-and-play" class="feature-section">
-                    <header class="feature-section-header">
-                        <h1>Responsive images.<br>Plug and play</h1>
-                    </header>
-                    <p>Responsify WP finds all images inside <b>the_content()</b> and makes them responsive.<br>Thanks to the included <a href="http://scottjehl.github.io/picturefill/" target="_blank">Picturefill</a> polyfill, you don't have to worry about browser support.</p>
                     <div class="row">
-                        <div class="col-2">
+                        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                            <header class="feature-section-header">
+                                <h1>Responsive images.<br>Plug and play</h1>
+                            </header>
+                            <p>Responsify WP finds all images inside <b>the_content()</b> and makes them responsive. Thanks to the included <a href="http://scottjehl.github.io/picturefill/" target="_blank">Picturefill</a> polyfill, you don't have to worry about browser support.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
                             <h2>Before</h2>
-<code>
 {% highlight html %}
 <article>
     <h1>Hello world</h1>
@@ -36,11 +38,9 @@ bodyClass: home overview
     <img src="[full-size-image]" alt="Image description">
 </article>
 {% endhighlight %}
-</code>
                         </div>
-                        <div class="col-2 last">
+                        <div class="col-sm-6">
                             <h2>After</h2>
-<code>
 {% highlight html %}
 <article>
     <h1>Hello world</h1>
@@ -56,20 +56,22 @@ bodyClass: home overview
         alt="Image description">
 </article>
 {% endhighlight %}
-</code>
                         </div>
                     </div>
                 </article>
 
                 <article id="image-or-picture" class="feature-section">
-                    <header class="feature-section-header">
-                        <h1>Image. Or picture</h1>
-                    </header>
-                    <p>Use <strong>img</strong> with <strong>srcset/sizes</strong> attributes. Or the <strong>picture</strong> element. Responsify WP supports both.</p>
                     <div class="row">
-                        <div class="col-2">
+                        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                            <header class="feature-section-header">
+                                <h1>Image. Or picture</h1>
+                            </header>
+                            <p>Use <strong>img</strong> with <strong>srcset/sizes</strong> attributes. Or the <strong>picture</strong> element. Responsify WP supports both.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
                             <h2>img[srcset/sizes]</h2>
-<code>
 {% highlight html %}
 <img sizes="(min-width: 1024px) 2048px,
     (min-width: 300px) 1024px,
@@ -81,11 +83,9 @@ bodyClass: home overview
     [full-size-image] 2048w"
     alt="Image description">
 {% endhighlight %}
-</code>
                         </div>
-                        <div class="col-2 last">
+                        <div class="col-sm-6">
                             <h2>picture</h2>
-<code>
 {% highlight html %}
 <picture>
     <source srcset="[full-size-image]" media="(min-width: 1024px)">
@@ -94,21 +94,23 @@ bodyClass: home overview
     <img srcset="[thumbnail" alt="Image description">
 </picture>
 {% endhighlight %}
-</code>
                         </div>
                     </div>
                 </article>
 
                 <article id="handpick-sizes" class="feature-section">
-                    <header class="feature-section-header">
-                        <h1>Made for developers. To</h1>
-                    </header>
-                    <p>With great powers comes great responsive websites. Responsify WP allows you to take control of your responsive images.</p>
                     <div class="row">
-                        <div class="col-3">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                            <header class="feature-section-header">
+                                <h1>Made for developers. To</h1>
+                            </header>
+                            <p>With great powers comes great responsive websites. Responsify WP allows you to take control of your responsive images.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
                             <h2>Handpick sizes</h2>
                             <p>Select exactly which image sizes that RWP should use.</p>
-<code>
 {% highlight php %}
 <?php
 // Using get_posts()
@@ -123,12 +125,10 @@ foreach ( $posts as $post ) {
 }
 ?>
 {% endhighlight %}
-</code>
                         </div>
-                        <div class="col-3">
+                        <div class="col-sm-4">
                             <h2>Media queries</h2>
                             <p>Specify which image size that should be used at which viewport size.</p>
-<code>
 {% highlight php %}
 <?php
 $args = array(
@@ -144,12 +144,10 @@ $args = array(
 $query = new WP_Query( $args );
 ?>
 {% endhighlight %}
-</code>
                         </div>
-                        <div class="col-3 last">
+                        <div class="col-sm-4">
                             <h2>Picture::create()</h2>
                             <p>Outside the loop? No problems, the <strong>Picture::create()</strong> function helps you whenever, and wherever you need it.</p>
-<code>
 {% highlight php %}
 <?php
 // Generates a picture element
@@ -158,23 +156,26 @@ echo Picture::create( 'element', $attachment_id, $optional_settings );
 echo Picture::create( 'img', $attachment_id, $optional_settings );
 ?>
 {% endhighlight %}
-</code>
                         </div>
                     </div>
                 </article>
 
             </section>
 
-            <section id="call-to-action">
-                <h1>Start caring</h1>
-                <a href="https://wordpress.org/plugins/responsify-wp/" class="button">Download Responsify WP</a>
-                <br>
-                <a href="https://github.com/stefanledin/responsify-wp" class="button">View on GitHub</a>
+            <section id="call-to-action" class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1>Start caring</h1>
+                        <a href="https://wordpress.org/plugins/responsify-wp/" class="button">Download Responsify WP</a>
+                        <br>
+                        <a href="https://github.com/stefanledin/responsify-wp" class="button">View on GitHub</a>
+                    </div>
+                </div>
             </section>
 
-            <footer role="contentinfo">
+            <footer role="contentinfo" class="container-fluid">
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-xs-12">
                         Created and maintaned by <a href="http://twitter.com/stefanledin">@stefanledin</a>
                     </div>
                 </div>
