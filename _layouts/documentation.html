@@ -1,0 +1,62 @@
+{% include header.html %}
+<div class="page-wrapper">
+	 <header class="site-header container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="logo small"><a href="/">Responsify WP</a></h1>
+            </div>
+        </div>
+    </header>
+
+    {% include main_menu.html %}
+
+    <div class="container-fluid">
+    	<div class="row">
+    		<nav class="sub-menu col-sm-4">
+                <ul class="menu-items">
+                    <li>
+                        <a href="/documentation/settings.html">Settings</a>
+                        <ul class="sub-menu-items">
+                            <li><a href="/documentation/settings.html#settings-image-sizes">Image sizes</a></li>
+                            <li><a href="/documentation/settings.html#settings-sizes-attribute">Sizes attribute</a></li>
+                            <li><a href="/documentation/settings.html#settings-media-queries">Media queries</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/documentation/functions.html">Functions</a>
+                        <ul class="sub-menu-items">
+                            <li><a href="#functions-element">Element/img</a></li>
+                            <li><a href="#functions-style">Style</a></li>
+                            <li><a href="#functions-reference">Reference</a></li>
+                            <ul class="sub-menu-items">
+                                <li><a href="#functions-reference-settings">Settings</a></li>
+                                <li><a href="#functions-reference-example-sizes">Example - sizes</a></li>
+                                <li><a href="#functions-reference-example-custom-media-queries">Example - custom media queries</a></li>
+                                <li><a href="#functions-reference-example-attributes">Example - attributes</a></li>
+                                <ul class="sub-menu-items">
+                                    <li><a href="#functions-reference-example-attributes-img">img</a></li>
+                                    <li><a href="#functions-reference-example-attributes-picture">picture</a></li>
+                                    <li><a href="#functions-reference-example-attributes-span">span</a></li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <section class="col-sm-8">
+            	<div class="content inner">
+            		<article id="{{ page.bodyClass }}">
+            			<header>
+            				<h1>{{ page.title }}</h1>
+            			</header>
+						{{ content }}
+					</article>
+            	</div>
+            </section>
+
+    	</div>
+    </div>
+
+</div>
+{% include footer.html %}
