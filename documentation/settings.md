@@ -75,3 +75,26 @@ $posts = get_posts(array(
     <img srcset="thumbnail.jpg" alt="Image description">
 </picture>
 {% endhighlight %}
+
+<h2 id="settings-retina">Retina</h2>
+
+{% highlight php %}
+<?php
+$posts = get_posts(array(
+    'post_type' => 'portfolio',
+    'rwp_settings' => array(
+        'retina' => true
+    )
+));
+?>
+{% endhighlight %}
+
+{% highlight html %}
+<picture>
+    <source srcset="full.jpg" media="(min-width: 1024px)">
+    <source srcset="large.jpg, large_retina.jpg 2x" media="(min-width: 300px)">
+    <source srcset="medium.jpg medium_retina.jpg 2x" media="(min-width: 150px)">
+    <source srcset="thumbnail.jpg, thumbnail_retina.jpg 2x">
+    <img srcset="thumbnail.jpg" alt="Image description">
+</picture>
+{% endhighlight %}
