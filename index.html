@@ -35,7 +35,7 @@ bodyClass: home overview
 <article>
     <h1>Hello world</h1>
     <p>Lorem ipsum dolor sit amet...</p>
-    <img src="[full-size-image]" alt="Image description">
+    <img src="full.jpg" alt="Image description">
 </article>
 {% endhighlight %}
                         </div>
@@ -49,10 +49,10 @@ bodyClass: home overview
         (min-width: 300px) 1024px,
         (min-width: 150px) 300px,
         150px" 
-        srcset="[thumbnail] 150w,
-        [medium-size-image] 300w,
-        [large-size-image] 1024w,
-        [full-size-image] 2048w"
+        srcset="thumbnail.jpg 150w,
+        medium.jpg 300w,
+        large.jpg 1024w,
+        full.jpg 2048w"
         alt="Image description">
 </article>
 {% endhighlight %}
@@ -77,10 +77,10 @@ bodyClass: home overview
     (min-width: 300px) 1024px,
     (min-width: 150px) 300px,
     150px" 
-    srcset="[thumbnail] 150w,
-    [medium-size-image] 300w,
-    [large-size-image] 1024w,
-    [full-size-image] 2048w"
+    srcset="thumbnail.jpg 150w,
+    medium.jpg 300w,
+    large.jpg 1024w,
+    full.jpg 2048w"
     alt="Image description">
 {% endhighlight %}
                         </div>
@@ -88,10 +88,48 @@ bodyClass: home overview
                             <h2>picture</h2>
 {% highlight html %}
 <picture>
-    <source srcset="[full-size-image]" media="(min-width: 1024px)">
-    <source srcset="[large-size-image]" media="(min-width: 300px)">
-    <source srcset="[medium-size-image]" media="(min-width: 150px)">
-    <img srcset="[thumbnail" alt="Image description">
+    <source srcset="full.jpg" media="(min-width: 1024px)">
+    <source srcset="large.jpg" media="(min-width: 300px)">
+    <source srcset="medium.jpg" media="(min-width: 150px)">
+    <img srcset="thumbnail.jpg" alt="Image description">
+</picture>
+{% endhighlight %}
+                        </div>
+                    </div>
+                </article>
+
+                <article id="high-resolution-images" class="feature-section">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                            <header class="feature-section-header">
+                                <h1>Crisp and sharp.</h1>
+                            </header>
+                            <p>Responsify WP supports high resolution, or retina, images. </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2>img[srcset/sizes]</h2>
+{% highlight html %}
+<img sizes="(min-width: 1024px) 2048px,
+    (min-width: 300px) 1024px,
+    (min-width: 150px) 300px,
+    150px" 
+    srcset="thumbnail.jpg 150w,
+    medium.jpg 300w,
+    medium-retina.jpg 600w,
+    large.jpg 1024w,
+    large-retina.jpg 2048w"
+    alt="Image description">
+{% endhighlight %}
+                        </div>
+                        <div class="col-sm-6">
+                            <h2>picture</h2>
+{% highlight html %}
+<picture>
+    <source srcset="large.jpg, large-retina.jpg 2x" media="(min-width: 300px)">
+    <source srcset="medium.jpg, medium-retina.jpg 2x" media="(min-width: 150px)">
+    <img srcset="thumbnail.jpg" alt="Image description">
 </picture>
 {% endhighlight %}
                         </div>
