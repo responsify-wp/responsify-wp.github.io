@@ -102,35 +102,127 @@ bodyClass: home overview
                     <div class="row">
                         <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                             <header class="feature-section-header">
-                                <h1>Crisp and sharp.</h1>
+                                <h1>Retina support</h1>
                             </header>
-                            <p>Responsify WP supports high resolution, or retina, images. </p>
+                            <p>Responsify WP supports high resolution, or retina, images. Devices with high pixel ratio will be served a larger verion of the image, thus making it look crisp and sharp.</p>
+                            <p>Simply add custom image sizes for 1.5x, 2x or whatever pixel density you want. </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>img[srcset/sizes]</h2>
-{% highlight html %}
-<img sizes="(min-width: 1024px) 2048px,
-    (min-width: 300px) 1024px,
-    (min-width: 150px) 300px,
-    150px" 
-    srcset="thumbnail.jpg 150w,
-    medium.jpg 300w,
-    medium-retina.jpg 600w,
-    large.jpg 1024w,
-    large-retina.jpg 2048w"
-    alt="Image description">
+                            <h2>Add sizes</h2>
+{% highlight php %}
+<?php
+add_image_size( 'thumbnail@1.5x', 225, 225 );
+add_image_size( 'medium@1.5x', 450, 450 );
+add_image_size( 'large@1.5x', 1536, 1536 );
+
+add_image_size( 'medium@2x', 600, 600 );
+add_image_size( 'large@2x', 2048, 2048 );
+
+add_image_size( 'medium@3x', 900, 900 );
+?>
 {% endhighlight %}
                         </div>
                         <div class="col-sm-6">
                             <h2>picture</h2>
 {% highlight html %}
 <picture>
-    <source srcset="large.jpg, large-retina.jpg 2x" media="(min-width: 300px)">
-    <source srcset="medium.jpg, medium-retina.jpg 2x" media="(min-width: 150px)">
-    <img srcset="thumbnail.jpg" alt="Image description">
+    <source srcset="large.jpg, large@1.5x.jpg 1.5x, large@2x.jpg 2x" media="(min-width: 300px)">
+    <source srcset="medium.jpg, medium@1.5x.jpg 1.5x medium@2x.jpg 2x, medium-retina-xxl.jpg 3x" media="(min-width: 150px)">
+    <img srcset="thumbnail.jpg, thumbnail@1.5x.jpg 1.5x" alt="Image description">
 </picture>
+{% endhighlight %}
+                        </div>
+                    </div>
+                </article>
+
+                <article id="native-mode" class="feature-section">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                            <header class="feature-section-header">
+                                <h1>Uses Picturefill. If you want</h1>
+                            </header>
+                            <p>Responsify WP comes with the excellent Picturefill polyfill which takes care of browser support for you.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2>Picturefill</h2>
+{% highlight html %}
+<picture>
+    <!--[if IE 9]><video style="display: none;"><![endif]-->
+    <source srcset="full.jpg" media="(min-width: 1024px)">
+    <source srcset="large.jpg" media="(min-width: 300px)">
+    <source srcset="medium.jpg" media="(min-width: 150px)">
+    <!--[if IE 9]></video><![endif]-->
+    <img srcset="thumbnail.jpg">
+</picture>
+{% endhighlight %}
+                        </div>
+                        <div class="col-sm-6">
+                            <h2>Native mode</h2>
+{% highlight html %}
+<picture>
+    <source srcset="full.jpg" media="(min-width: 1024px)">
+    <source srcset="large.jpg" media="(min-width: 300px)">
+    <source srcset="medium.jpg" media="(min-width: 150px)">
+    <img src="thumbnail.jpg">
+</picture>
+{% endhighlight %}
+                        </div>
+                    </div>
+                </article>
+
+                <article id="custom-media-queries" class="feature-section">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                            <header class="feature-section-header">
+                                <h1>Easy to customize</h1>
+                            </header>
+                            <p>Do you need to override the default behavior? Responsify WP </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2>Custom media queries</h2>
+{% highlight php %}
+<?php
+$args = array(
+    'rwp_settings' => array(
+        'media_queries' => array(
+            'medium' => 'min-width: 500px',
+            'large' => 'min-width: 1024px',
+            'full' => 'min-width: 2000px'
+        )
+    )
+);
+$query = new WP_Query( $args );
+?>
+{% endhighlight %}
+{% highlight html %}
+<picture>
+    <source srcset="full.jpg" media="(min-width: 2000px)">
+    <source srcset="large.jpg" media="(min-width: 1024px)">
+    <source srcset="medium.jpg" media="(min-width: 500px)">
+    <img srcset="thumbnail.jpg">
+</picture>
+{% endhighlight %}
+                        </div>
+                        <div class="col-sm-6">
+                            <h2>Handpick sizes</h2>
+{% highlight php %}
+<?php
+$args = array(
+    'rwp_settings' => array(
+        'sizes' => array('thumbnail', 'medium', 'large')
+    )
+);
+$posts = get_posts( $args );
+?>
+{% endhighlight %}
+{% highlight html %}
+<img srcset="thumbnail.jpg 150w, medium.jpg 300w, large.jpg 1024w" sizes="...">
 {% endhighlight %}
                         </div>
                     </div>
@@ -146,7 +238,7 @@ bodyClass: home overview
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <h2>Handpick sizes</h2>
                             <p>Select exactly which image sizes that RWP should use.</p>
 {% highlight php %}
@@ -164,26 +256,7 @@ foreach ( $posts as $post ) {
 ?>
 {% endhighlight %}
                         </div>
-                        <div class="col-sm-4">
-                            <h2>Media queries</h2>
-                            <p>Specify which image size that should be used at which viewport size.</p>
-{% highlight php %}
-<?php
-$args = array(
-    'post_type' => 'portfolio',
-    'rwp_settings' => array(
-        'sizes' => array('thumbnail', 'medium', 'large'),
-        'media_queries' => array(
-            'medium' => 'min-width: 500px',
-            'large' => 'min-width: 1024px'
-        )
-    )
-);
-$query = new WP_Query( $args );
-?>
-{% endhighlight %}
-                        </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <h2>Picture::create()</h2>
                             <p>Outside the loop? No problems, the <strong>Picture::create()</strong> function helps you whenever, and wherever you need it.</p>
 {% highlight php %}
