@@ -1,0 +1,26 @@
+{% include header.html %}
+<div class="page-wrapper">
+    <header class="site-header container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="logo small"><a href="/">Responsify WP</a></h1>
+            </div>
+        </div>
+    </header>
+
+    {% include main_menu.html %}
+
+	<section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <header>
+                        <h1 class="page-title">{{ page.title }}</h1>
+                    </header>
+                    {{ content }}
+                </div>
+            </div>
+        </div>
+	</section>
+</div>
+{% include footer.html %}

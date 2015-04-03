@@ -1,0 +1,13 @@
+---
+layout: page
+title: Tutorials
+bodyClass: tutorials
+---
+{% if site.data.tutorials %}
+    {% for tutorials in site.data.tutorials %}
+        <article>
+            <h2>{{ tutorials.title }}</h2>
+            <a href="{{ tutorials.url }}">Read tutorial</a>
+        </article>
+    {% endfor %}
+{% endif %}
