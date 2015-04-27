@@ -76,6 +76,16 @@ img {
 	height: auto;
 }
 
+video {
+max-width: 100%;
+height: auto;
+}
+iframe,
+embed,
+object {
+max-width: 100%;
+}
+
 h1, h2 {
 	text-align: center;
 }
@@ -314,6 +324,10 @@ article {
 	}
 }
 
+.js-video-wrapper {
+	margin: 20px 0;
+}
+
 /**
  * Pages
  */
@@ -371,5 +385,12 @@ article {
 }
 .sub-menu-items .sub-menu-items a {
 	padding: .5em 3em;
+}
+
+/**
+ * Tutorial
+ */
+.tutorial article {
+	max-width: 1170px;
 }
 
