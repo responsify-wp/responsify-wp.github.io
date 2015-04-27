@@ -239,20 +239,20 @@ $posts = get_posts( $args );
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <header class="feature-section-header">
-                        <h1>Picture::create()</h1>
+                        <h1>Powerful functions</h1>
                     </header>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <h2>element/img</h2>
-                    <p>Outside the loop? No problems, the <strong>Picture::create()</strong> function helps you whenever, and wherever you need it.</p>
+                    <h2>Generate markup</h2>
+                    <p>Outside the loop? No problems, the <strong>rwp_img() or rwp_picture()</strong> functions helps you whenever, and wherever you need it.</p>
 {% highlight php %}
 <?php
 // Generates a picture element
-echo Picture::create( 'element', $attachment_id, $optional_settings );
+echo rwp_picture( $attachment_id, $optional_settings );
 // Generates a img tag with srcset/sizes attributes
-echo Picture::create( 'img', $attachment_id, $optional_settings );
+echo rwp_img( $attachment_id, $optional_settings );
 ?>
 {% endhighlight %}
                     <p><strong>Output:</strong></p>
@@ -266,11 +266,11 @@ echo Picture::create( 'img', $attachment_id, $optional_settings );
 {% endhighlight %}
                 </div>
                 <div class="col-sm-4">
-                    <h2>attributes</h2>
+                    <h2>Just the attributes</h2>
                     <p>This function returns an array of attributes for a specified element.</p>
 {% highlight php %}
 <?php
-$img_attributes = Picture::create( 'attributes', $attachment_id, array(
+$img_attributes = rwp_attributes( $attachment_id, array(
     'element' => 'img'
 ) );
 ?>
@@ -284,12 +284,12 @@ Array(
 {% endhighlight %}
                 </div>
                 <div class="col-sm-4">
-                    <h2>style</h2>
+                    <h2>Responsive backgrounds</h2>
                     <p>This function creates an style tag with CSS for your dynamic background image.</p>
 {% highlight php %}
 <?php
 $background = get_field('header_image');
-echo Picture::create( 'style', $background, array(
+echo rwp_style( $background, array(
     'selector' => '#page-header'
 ) );
 ?>
