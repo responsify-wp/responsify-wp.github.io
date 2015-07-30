@@ -12,12 +12,12 @@
  */
 
 /* Colors */
-$red: #a40c0b;
-$orange: #d54e21;
+$red: #ad2323;
+$darkRed: #8b0a0a;
 $grey: #464646;
 
 /* Typography */
-$font: 'Exo', sans-serif;
+$font: 'Exo 2', sans-serif;
 
 /* Media queries */
 $tablet: 700px;
@@ -28,10 +28,10 @@ $tablet: 700px;
 @mixin button {
 	display: inline-block;
 	padding: 5px 8px;
-	background-color: $orange;
-	background-image: -webkit-linear-gradient(top, $orange, $red);
-	background-image: linear-gradient(to bottom, $orange, $red);
-	border: 1px solid $grey;
+	background-color: $darkRed;
+	background-image: -webkit-linear-gradient(top, $red, $darkRed);
+	background-image: linear-gradient(to bottom, $red, $darkRed);
+	border: 1px solid black;
 	border-radius: 10px;
 	color: white;
 	text-decoration: none;
@@ -228,31 +228,22 @@ footer[role="contentinfo"] {
 	left: 0;
 	z-index: 0;
 	.background-device {
-		background: rgba(255, 255, 255, .1);
 		position: absolute;
 		top: 0;
 		left: 0;
 	}
 }
 .iphone-4 {
-	&.portrait { width: 320px; height: 480px; }
-	&.landscape { width: 480px; height: 320px; }
+	&.landscape { width: 480px; height: 320px; background-color: #ad2323; z-index: 3; }
 }
 .iphone-5 {
-	&.portrait { width: 320px; height: 568px; }
-	&.landscape { width: 568px; height: 320px; }
+	&.portrait { width: 320px; height: 568px; background-color: #ef7171; z-index: 4; }
 }
 .ipad {
-	&.portrait { width: 768px; height: 1024px; }
-	&.landscape { width: 1024px; height: 768px; }
+	&.landscape { width: 1024px; height: 768px; background-color: #cb4242; z-index: 1; }
 }
 .tablet {
-	&.portrait { width: 800px; height: 600px; }
-	&.landscape { width: 600px; height: 800px; }
-}
-.desktop {
-	&.portrait { width: 1280px; height: 900px; }
-	&.landscape { width: 900px; height: 1280px; }
+	&.portrait { width: 800px; height: 600px; background-color: #8b0a0a; z-index: 2 }
 }
 
 /**
